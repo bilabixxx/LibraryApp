@@ -64,9 +64,17 @@ Remarkable is a Javascript library used to convert Markdown text to HTML.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## TEST THE APPLICATION
+
+Want to try the application? You can try the app on [Netlify](https://serene-brown-90528c.netlify.app/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## CONTACTS
 
 Email: [gennuso.biagio@gmail.com](mailto:gennuso.biagio@gmail.com)
 
 Github: [Library App](https://github.com/bilabixxx/LibraryApp)
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
