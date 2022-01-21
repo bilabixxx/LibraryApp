@@ -1,6 +1,6 @@
 <div id="top"><div>
 
-# COUNTER APP
+# LIBRARY APP
 
 ## ABOUT THE PROJECT
 
