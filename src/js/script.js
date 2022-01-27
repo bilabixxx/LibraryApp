@@ -1,5 +1,7 @@
 const axios = require("axios");
 const { Remarkable } = require('remarkable');
+const _ = require('lodash');
+const covBook = require('../img/no-image.png')
 
 getSubjectResult = () => {
     let url = "https://openlibrary.org/subjects/" + document.getElementById('search-bar').value + ".json";
@@ -7,16 +9,18 @@ getSubjectResult = () => {
     axios.get(url)
     .then(value => {
       let html='';
-      let coverBook;
       value.data.works.map( book => {
-        coverBook = checkCoverBook(book.cover_id);
+        let coverId = _.get(book, 'cover_id', 'no-cover');
+        let bookKey = _.get(book, 'key', 'no-book-key');
+        let titleBook = _.get(book, 'title', 'Without title')
+        coverBook = checkCoverBook(coverId);
         html += `
-        <div class="book d-flex m-5" id="${book.key}">
+        <div class="book d-flex m-5" id="${bookKey}">
         <div>
           <img src="${coverBook}">
         </div>
         <div class="book-title">  
-          <p><b>Book: </b>${book.title}</p>
+          <p><b>Book: </b>${titleBook}</p>
           <p><b>Authors: </b>
         `;
         for(numberAuthors in book.authors) {
@@ -28,8 +32,8 @@ getSubjectResult = () => {
           }
         }
         html+= `</p>
-          <div class="inactive" id="${book.key}-description"></div>
-          <button class="btn btn-dark read-more" id="${book.key}-read-button" type="button" onclick="getDescriptionBooks('${book.key}')">
+          <div class="inactive" id="${bookKey}-description"></div>
+          <button class="btn btn-dark read-more" id="${bookKey}-read-button" type="button" onclick="getDescriptionBooks('${bookKey}')">
           Read More<i class="fas fa-arrow-down ps-3"></i></button>
         </div>
         </div>`;
@@ -48,21 +52,16 @@ getSubjectResult = () => {
     this.id = id;
     let url = `https://openlibrary.org${id}.json`;
     let md = new Remarkable();
-    let html = '';
     axios(url)
     .then(value => {
-      let elem = document.getElementById(`${value.data.key}-description`);
-      let buttonReadMore = document.getElementById(`${value.data.key}-read-button`);
-      switch(typeof(value.data.description)){
-        case 'string':
-          html=`${value.data.description}`;
-          break;
-        case 'object':
-          html=`${value.data.description.value}`;
-          break;
-        case 'undefined':
-          html=`Description not found`;
-          break;
+      let html = _.get(value.data, 'description', 'Description not found');
+      let keyId = _.get(value.data, 'key', 'no')
+      let elem = document.getElementById(`${keyId}-description`);
+      let buttonReadMore = document.getElementById(`${keyId}-read-button`);
+      
+    
+      if(typeof(html) == 'object'){
+        html = _.get(value.data, 'description.value', 'Description not found');
       }
         
       if (elem.classList.contains('inactive')) {
@@ -89,7 +88,7 @@ getSubjectResult = () => {
   checkCoverBook = (cover) => {
     this.cover = cover;
     if(cover == null) {
-      cover = 'img/no-image.png';
+      cover = covBook;
     } else {
       cover = `https://covers.openlibrary.org/b/id/${cover}-M.jpg`;
     }
