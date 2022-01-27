@@ -1,6 +1,9 @@
-  getSubjectResult = () => {
-    let url = "https://openlibrary.org/subjects/" + document.getElementById('search-bar').value + ".json";
+const axios = require("axios");
+const { Remarkable } = require('remarkable');
 
+getSubjectResult = () => {
+    let url = "https://openlibrary.org/subjects/" + document.getElementById('search-bar').value + ".json";
+  
     axios.get(url)
     .then(value => {
       let html='';
@@ -35,12 +38,12 @@
       if(html == ""){
         html =  '<h2 class="text-center mt-3">No results found</h2>';
       }
-
+  
       document.getElementById('result').innerHTML = html;
     })
     .catch((error) => { console.log(error) });
   }  
-
+  
   getDescriptionBooks = (id) => {
     this.id = id;
     let url = `https://openlibrary.org${id}.json`;
@@ -82,7 +85,7 @@
     })
     .catch((error) => { console.log(error) });
   }
-
+  
   checkCoverBook = (cover) => {
     this.cover = cover;
     if(cover == null) {
@@ -92,5 +95,4 @@
     }
     return cover;
   }
-
-  document.getElementById('search-btn').addEventListener('click', () => getSubjectResult());
+  

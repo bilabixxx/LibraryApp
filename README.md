@@ -28,25 +28,25 @@ The data obtained from the Open Librery API may sometimes be missing. Depending 
 
 The image below shows the typical display with all data in full:
 
-![](img/full.png)
+![](src/img/full.png)
 
 ### IMAGE NOT AVAILABLE
 
 If the API does not find the book cover as a result, then the cover will be displayed as follows:
 
-![](img/no-cover.png)
+![](src/img/no-cover.png)
 
 ### DESCRIPTION NOT AVAILABLE
 
 If the API does not find the book description as a result, then the cover will be displayed as follows:
 
-![](img/no-description.png)
+![](src/img/no-description.png)
 
 ### SEARCH WITHOUT RESULTS
 
 If the search returns no results, then the following image will be displayed: 
 
-![](img/no-results.png)
+![](src/img/no-results.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
