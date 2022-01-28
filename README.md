@@ -62,6 +62,14 @@ Remarkable is a Javascript library used to convert Markdown text to HTML.
 
 **Reason for use:** Sometimes the book descriptions requested from the Open Library API were not normal text but markdown text. Through the use of this library the descriptions will be displayed correctly.
 
+### WEBPACK
+
+Webpack is a static module bundler for JavaScript applications: it takes all the code from applications and makes it usable in a web browser. Modules are reusable blocks of code created from JavaScript, node_modules, images and CSS styles from apps that are packaged for easy use in a website.
+
+### LOADASH
+
+Lodash is a JavaScript library that helps programmers write more concise and maintainable JavaScript. It can be broken down into several main areas: Utilities - for simplifying common programming tasks such as determining type as well as simplifying math operations.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## TEST THE APPLICATION
