@@ -74,7 +74,7 @@ Lodash is a JavaScript library that helps programmers write more concise and mai
 
 ## TEST THE APPLICATION
 
-Want to try the application? You can try the app on [Netlify](https://elastic-hugle-0ee9ed.netlify.app/)
+Want to try the application? You can try the app on [Netlify](https://infallible-hawking-9f4257.netlify.app)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
