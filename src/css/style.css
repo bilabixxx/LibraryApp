@@ -13,6 +13,9 @@ img {
 #no-description, #no-book-key {
     dispaly: none;
 }
+.inactive {
+    display: none;
+}
 @media only screen and (max-width: 640px) {
     .book {
         flex-direction: column;
